@@ -52,8 +52,8 @@ jobs:
       #     local_path: "./build/*"
       #     remote_path: "/www"
       - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v3
-      with:
-        ACCESS_TOKEN: ${{ secrets.MY_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: build
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          ACCESS_TOKEN: ${{ secrets.MY_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build
