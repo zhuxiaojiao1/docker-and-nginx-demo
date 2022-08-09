@@ -21,9 +21,9 @@ jobs:
       #     username: ${{ secrets.USERNAME }}
       #     password: ${{ secrets.MY_TOKEN }}
       - name: Install and Build
-      run: |
-        npm install
-        npm run-script build
+        run: |
+          npm install
+          npm run-script build
       # 2.向github发布包
       # - name: publish to github packages
       #   uses: elgohr/Publish-Docker-Github-Action@v4
