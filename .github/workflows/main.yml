@@ -14,12 +14,12 @@ jobs:
       - name: check code
         uses: actions/checkout@v3
 
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v1
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.MY_TOKEN }}
+      # - name: Login to GitHub Container Registry
+      #   uses: docker/login-action@v1
+      #   with:
+      #     registry: ghcr.io
+      #     username: ${{ github.repository_owner }}
+      #     password: ${{ secrets.MY_TOKEN }}
 
       # 2.向github发布包
       - name: publish to github packages
@@ -28,7 +28,7 @@ jobs:
           name: docker_demo_02
           # username: zhuxiaojiao1
           # password: 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
-          username: ${{github.actor}}
+          username: ${{github.repository_owner}}
           password: ${{secrets.MY_TOKEN}}
           registry: ghcr.io
           dockerfile: DockerFile
