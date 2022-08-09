@@ -11,7 +11,7 @@
     "keywords": [],
     "author": "",
     "license": "ISC",
-    "dependencies": {
+    "devDependencies": {
         "@babel/core": "^7.18.10",
         "@babel/parser": "^7.18.11",
         "@babel/preset-env": "^7.18.10",
@@ -40,5 +40,8 @@
         "webpack-cli": "^4.10.0",
         "webpack-dev-server": "^4.9.3",
         "webpack-merge": "^5.8.0"
+    },
+    "dependencies": {
+
     }
 }
