@@ -16,13 +16,11 @@ jobs:
 
       # 2.安装node
       - name: setup node
-        uses: actions/setup-node@v3.4.1
+        uses: actions/setup-node@v3.3.0
 
       # 3.下载依赖
       - name: install dependence
-        run: |
-          cd ../
-          npm i
+        run: npm i
 
       # 4.打包
       - name: "build"
