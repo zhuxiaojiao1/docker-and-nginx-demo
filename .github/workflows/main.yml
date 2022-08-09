@@ -20,7 +20,7 @@ jobs:
 
       # 3.下载依赖
       - name: install dependence
-        run: npm i
+        run: npm i --force
 
       # 4.打包
       - name: "build"
