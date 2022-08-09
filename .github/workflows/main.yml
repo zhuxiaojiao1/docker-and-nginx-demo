@@ -27,11 +27,12 @@ jobs:
           name: docker_demo_02
           # username: zhuxiaojiao1
           # password: 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
-          username: ${{github.repository_owner}}
+          username: ${{github.actor}}
           password: ${{secrets.MY_TOKEN}}
           registry: ghcr.io
           dockerfile: DockerFile
           tags: "0.0.1"
+          workdir: "/"
       # - name: install dependencies
       #   run: yarn
       # - name: build

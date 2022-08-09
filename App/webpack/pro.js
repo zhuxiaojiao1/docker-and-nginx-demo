@@ -1,6 +1,7 @@
 const { merge } = require("webpack-merge");
 const commonConfig = require("./common");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = merge(commonConfig, {
     mode: "production",
@@ -33,6 +34,10 @@ module.exports = merge(commonConfig, {
         ],
     },
     plugins: [
+        new HtmlWebpackPlugin({
+            template: "./public/index.html",
+            title: "123_webpack",
+        }),
         new MiniCssExtractPlugin({
             filename: "css/[name].css",
         }),
