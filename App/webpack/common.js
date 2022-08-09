@@ -4,7 +4,7 @@ module.exports = {
     entry: path.resolve(__dirname, "../src/index.tsx"),
     output: {
         path: path.resolve(__dirname, "../build"),
-        publicPath: "../",
+        publicPath: "/",
         // filename: "[name].bundle.js",
     },
     module: {
