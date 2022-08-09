@@ -24,6 +24,6 @@ jobs:
 
       # 4.打包
       - name: "build"
-        run: npm run build
+        run: yarn build
 
       # 5.推送部署到服务器
