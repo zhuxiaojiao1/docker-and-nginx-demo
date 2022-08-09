@@ -1,0 +1,29 @@
+# 最基本最简单的工作流
+name: study_demo CI
+
+on:
+  push:
+    branches: "main"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1.copy代码
+      - name: "check code"
+      - uses: "actions/checkout@v3"
+
+      # 2.安装node
+      - name: "setup node"
+      - uses: "actions/setup-node@v3.4.1"
+
+      # 3.下载依赖
+      - name: "install dependence"
+      - run: "npm install"
+
+      # 4.打包
+      - name: "build"
+      - run: "npm run build"
+
+      # 5.推送部署到服务器
