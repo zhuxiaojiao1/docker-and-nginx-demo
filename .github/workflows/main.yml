@@ -24,6 +24,6 @@ jobs:
 
       # 4.打包
       - name: "build"
-        run: yarn build
+        run: yarn run build
 
       # 5.推送部署到服务器
