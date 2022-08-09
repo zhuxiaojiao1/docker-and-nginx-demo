@@ -32,7 +32,7 @@ jobs:
           registry: ghcr.io
           dockerfile: DockerFile
           tags: "0.0.1"
-          workdir: "/"
+          workdir: "../"
       # - name: install dependencies
       #   run: yarn
       # - name: build
