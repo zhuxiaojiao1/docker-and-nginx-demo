@@ -1,25 +1,37 @@
-name: github action - docker - nginx
+# 最基本最简单的工作流
+name: study_demo CI
 
 on:
   push:
-    branches: ["main"]
+    branches: "main"
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
 
+    steps:
+      # 1.copy代码
+      - name: check code
+        uses: actions/checkout@v3
+
+      # - name: Login to GitHub Container Registry
+      #   uses: docker/login-action@v2
+      #   with:
+      #     registry: ghcr.io
+      #     username: ${{ secrets.USERNAME }}
+      #     password: ${{ secrets.MY_TOKEN }}
+      # 2.向github发布包
       - name: publish to github packages
         uses: elgohr/Publish-Docker-Github-Action@v4
         with:
-          name: docker_demo_01 # 要推送的镜像名称
-          username: ${{github.actor}} # 登录到注册表的用户名
-          password: ${{secrets.MY_TOKEN}} # 登录到注册表的密码
-          registry: ghcr.io # 使用注册表push到自定义注册表
-          dockerfile: Dockerfile # 使用的dockerfile文件名
+          name: docker_demo_02
+          # username: zhuxiaojiao1
+          # password: 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
+          username: ${{github.actor}}
+          password: ${{secrets.MY_TOKEN}}
+          registry: ghcr.io
+          dockerfile: DockerFile
           tags: "0.0.1"
-
       # - name: install dependencies
       #   run: yarn
       # - name: build
@@ -27,11 +39,17 @@ jobs:
 
       # 3.推送部署到服务器
       # 利用action把build好的文件上传到服务器/var/www/react-app路径下,需要确认此目录已在服务端创建
-      - name: deploy file to server
-        uses: wlixcc/SFTP-Deploy-Action@v1.0
+      # - name: deploy file to server
+      #   uses: wlixcc/SFTP-Deploy-Action@v1.0
+      #   with:
+      #     username: "root"
+      #     server: ${{secrets.MY_SERVER}}
+      #     ssh_private_key: ${{secrets.MY_TOKEN}}
+      #     local_path: "./build/*"
+      #     remote_path: "/www"
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
-          username: "root"
-          server: ${{secrets.MY_SERVER}}
-          ssh_private_key: ${{secrets.MY_TOKEN}}
-          local_path: "./build/*"
-          remote_path: "/www"
+          ACCESS_TOKEN: ${{ secrets.MY_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build
