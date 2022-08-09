@@ -36,6 +36,6 @@ jobs:
         with:
           username: "root"
           server: ${{secrets.MY_SERVER}}
-          ssh_private_key: ${{secrete.MY_TOKEN}}
+          ssh_private_key: ${{secrets.MY_TOKEN}}
           local_path: "./build/*"
           remote_path: "/www"
