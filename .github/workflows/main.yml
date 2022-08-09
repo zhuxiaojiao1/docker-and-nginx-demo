@@ -14,13 +14,16 @@ jobs:
       - name: check code
         uses: actions/checkout@v3
 
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v2
-        with:
-          registry: ghcr.io
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.MY_TOKEN }}
-
+      # - name: Login to GitHub Container Registry
+      #   uses: docker/login-action@v2
+      #   with:
+      #     registry: ghcr.io
+      #     username: ${{ secrets.USERNAME }}
+      #     password: ${{ secrets.MY_TOKEN }}
+      - name: Install and Build
+      run: |
+        npm install
+        npm run-script build
       # 2.向github发布包
       # - name: publish to github packages
       #   uses: elgohr/Publish-Docker-Github-Action@v4
@@ -40,11 +43,17 @@ jobs:
 
       # 3.推送部署到服务器
       # 利用action把build好的文件上传到服务器/var/www/react-app路径下,需要确认此目录已在服务端创建
-      - name: deploy file to server
-        uses: wlixcc/SFTP-Deploy-Action@v1.0
-        with:
-          username: "root"
-          server: ${{secrets.MY_SERVER}}
-          ssh_private_key: ${{secrets.MY_TOKEN}}
-          local_path: "./build/*"
-          remote_path: "/www"
+      # - name: deploy file to server
+      #   uses: wlixcc/SFTP-Deploy-Action@v1.0
+      #   with:
+      #     username: "root"
+      #     server: ${{secrets.MY_SERVER}}
+      #     ssh_private_key: ${{secrets.MY_TOKEN}}
+      #     local_path: "./build/*"
+      #     remote_path: "/www"
+      - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        ACCESS_TOKEN: ${{ secrets.MY_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: build
