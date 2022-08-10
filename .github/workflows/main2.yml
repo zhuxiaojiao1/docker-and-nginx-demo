@@ -41,7 +41,7 @@ jobs:
         with:
           token: ${{secrets.MY_TOKEN}}
           branch: demo01
-          folder: ~//work/study_demo01/App/build
+          folder: ~/work/study_demo01/App/build #  /home/runner//work/study_demo01/App/build
           repository-name: zhuxiaojiao1/zhuxiaojiao1/github.io
           # folder: ./App/build  # /home/runner/work/study_demo01/study_demo01/App/build
           # folder: .  部署成功了，但是找不到页面
