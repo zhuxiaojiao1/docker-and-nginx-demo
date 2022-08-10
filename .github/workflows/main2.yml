@@ -25,14 +25,17 @@ jobs:
 
       - name: Install and Build
         run: |
-          npm i
+          npm install
           npm run build
 
       # 构建和部署
       - name: build and deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          ACCESS_TOKEN: ${{secrets.MY_TOKEN}}
-          BRANCH: gh-pages
-          FOLDER: build
+          token: ${{secrets.MY_TOKEN}}
+          branch: gh-pages
+          folder: build
+          # ACCESS_TOKEN: ${{secrets.MY_TOKEN}}
+          # BRANCH: gh-pages
+          # FOLDER: build
           # BUILD_SCRIPT: npm install && npm run build
