@@ -18,7 +18,7 @@ RUN yarn install && yarn build
 FROM nginx
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
-COPY --from=builder /app/build .
+COPY --from=builder /app/APP/build .
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # entrypoint
