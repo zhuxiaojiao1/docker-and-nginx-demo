@@ -45,7 +45,7 @@ jobs:
       - name: build and deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          token: ${{secrets.MY_TOKEN}}
+          # token: ${{secrets.MY_TOKEN}}
           branch: demo01
           folder: ./App/build
           # folder: ~/work/study_demo01/App/build #  /home/runner/work/study_demo01/App/build
