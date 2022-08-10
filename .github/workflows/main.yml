@@ -50,4 +50,4 @@ jobs:
         with:
           ACCESS_TOKEN: ${{ secrets.MY_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: App/build
+          FOLDER: ./App/build
