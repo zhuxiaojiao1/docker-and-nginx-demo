@@ -41,7 +41,7 @@ jobs:
         with:
           # token: ${{secrets.MY_TOKEN}}
           # branch: gh-pages
-          folder: . /App/build
+          folder: ./App/build
           # folder: .  部署成功了，但是找不到页面
           # folder: build # /home/runner/work/study_demo01/study_demo01/build
           # folder: ~/App/build  # /home/runner/App/build
