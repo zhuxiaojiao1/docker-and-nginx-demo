@@ -41,4 +41,6 @@ jobs:
         with:
           # token: ${{secrets.MY_TOKEN}}
           # branch: gh-pages
-          folder: ~/App/build
+          folder: .
+          # folder: build # /home/runner/study_demo01/study_demo01/build
+          # folder: ~/App/build  # /home/runner/App/build
