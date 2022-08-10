@@ -44,6 +44,7 @@ jobs:
       # 构建和部署
       - name: build and deploy
         uses: JamesIves/github-pages-deploy-action@v4
+        run: cd App
         with:
           token: ${{secrets.MY_TOKEN}}
           branch: demo01
