@@ -41,7 +41,7 @@ jobs:
         with:
           token: ${{secrets.MY_TOKEN}}
           branch: gh-pages
-          folder: build
+          folder: ../App/build
           # ACCESS_TOKEN: ${{secrets.MY_TOKEN}}
           # BRANCH: gh-pages
           # FOLDER: build
