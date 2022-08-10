@@ -24,9 +24,7 @@ jobs:
       - name: publish to github packages
         uses: elgohr/Publish-Docker-Github-Action@v4
         with:
-          name: zhuxiaojiao1/docker_demo_02
-          # username: zhuxiaojiao1
-          # password: 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
+          name: zhuxiaojiao1/docker_demo_02 # 必须带上github用户名!!!!
           username: ${{github.actor}}
           password: ${{secrets.MY_TOKEN}}
           registry: ghcr.io
