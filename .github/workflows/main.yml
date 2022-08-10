@@ -3,7 +3,7 @@ name: study_demo CI
 
 on:
   push:
-    branches: "main"
+    branches: "main1"
 
 jobs:
   build:

@@ -8,6 +8,7 @@
         "start": "webpack-dev-server --config ./webpack/dev.js",
         "build": "webpack --config ./webpack/pro.js"
     },
+    "homepage": "https://zhuxiaojiao1.github.io/study_demo01",
     "keywords": [],
     "author": "",
     "license": "ISC",
