@@ -24,16 +24,21 @@ jobs:
       - name: checkout code
         uses: actions/checkout@v3
 
+      - name: install and build
+        run: |
+          npm install
+          npm run build
+
       # 2.向github发布包
-      - name: publish to github packages
-        uses: elgohr/Publish-Docker-Github-Action@v4
-        with:
-          name: zhuxiaojiao1/docker_demo_02 # 必须带上github用户名!!!!
-          username: ${{github.actor}}
-          password: ${{secrets.MY_TOKEN}}
-          registry: ghcr.io
-          dockerfile: Dockerfile # 不能 DockerFile (只能首字母大写！！！)
-          tags: "0.0.1"
+      # - name: publish to github packages
+      #   uses: elgohr/Publish-Docker-Github-Action@v4
+      #   with:
+      #     name: zhuxiaojiao1/docker_demo_02 # 必须带上github用户名!!!!
+      #     username: ${{github.actor}}
+      #     password: ${{secrets.MY_TOKEN}}
+      #     registry: ghcr.io
+      #     dockerfile: Dockerfile # 不能 DockerFile (只能首字母大写！！！)
+      #     tags: "0.0.1"
 
       # 构建和部署
       - name: build and deploy
@@ -41,7 +46,7 @@ jobs:
         with:
           token: ${{secrets.MY_TOKEN}}
           branch: demo01
-          folder: .
+          folder: build
           # folder: ~/work/study_demo01/App/build #  /home/runner/work/study_demo01/App/build
           repository-name: zhuxiaojiao1/zhuxiaojiao1/github.io
           # folder: ./App/build  # /home/runner/work/study_demo01/study_demo01/App/build
