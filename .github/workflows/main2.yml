@@ -26,6 +26,7 @@ jobs:
 
       - name: install and build
         run: |
+          cd App
           npm install
           npm run build
 
