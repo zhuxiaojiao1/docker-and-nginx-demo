@@ -25,7 +25,7 @@ jobs:
 
       - name: Install and Build
         run: |
-          npm ci
+          npm i
           npm run build
 
       # 构建和部署
