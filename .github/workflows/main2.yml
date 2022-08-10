@@ -39,9 +39,9 @@ jobs:
       - name: build and deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          token: ${{secrets.MY_TOKEN}}
-          branch: gh-pages
-          folder: ../App/build
+          # token: ${{secrets.MY_TOKEN}}
+          # branch: gh-pages
+          folder: build
           # ACCESS_TOKEN: ${{secrets.MY_TOKEN}}
           # BRANCH: gh-pages
           # FOLDER: build
