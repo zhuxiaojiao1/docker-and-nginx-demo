@@ -44,11 +44,10 @@ jobs:
       # 构建和部署
       - name: build and deploy
         uses: JamesIves/github-pages-deploy-action@v4
-        run: cd App
         with:
           token: ${{secrets.MY_TOKEN}}
           branch: demo01
-          folder: build
+          folder: ./App/build
           # folder: ~/work/study_demo01/App/build #  /home/runner/work/study_demo01/App/build
           repository-name: zhuxiaojiao1/zhuxiaojiao1/github.io
           # folder: ./App/build  # /home/runner/work/study_demo01/study_demo01/App/build
