@@ -14,12 +14,6 @@ jobs:
       - name: check code
         uses: actions/checkout@v3
 
-      # - name: Login to GitHub Container Registry
-      #   uses: docker/login-action@v2
-      #   with:
-      #     registry: ghcr.io
-      #     username: ${{ secrets.USERNAME }}
-      #     password: ${{ secrets.MY_TOKEN }}
       # 2.向github发布包
       - name: publish to github packages
         uses: elgohr/Publish-Docker-Github-Action@v4
@@ -30,24 +24,11 @@ jobs:
           registry: ghcr.io
           dockerfile: Dockerfile # 不能 DockerFile (只能首字母大写！！！)
           tags: "0.0.1"
-      # - name: install dependencies
-      #   run: yarn
-      # - name: build
-      #   run: yarn build
 
       # 3.推送部署到服务器
-      # 利用action把build好的文件上传到服务器/var/www/react-app路径下,需要确认此目录已在服务端创建
-      # - name: deploy file to server
-      #   uses: wlixcc/SFTP-Deploy-Action@v1.0
+      # - name: Deploy
+      #   uses: JamesIves/github-pages-deploy-action@releases/v3
       #   with:
-      #     username: "root"
-      #     server: ${{secrets.MY_SERVER}}
-      #     ssh_private_key: ${{secrets.MY_TOKEN}}
-      #     local_path: "./build/*"
-      #     remote_path: "/www"
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          ACCESS_TOKEN: ${{ secrets.MY_TOKEN }}
-          BRANCH: gh-pages
-          FOLDER: ./App/build
+      #     ACCESS_TOKEN: ${{ secrets.MY_TOKEN }}
+      #     BRANCH: gh-pages
+      #     FOLDER: ./App/build
