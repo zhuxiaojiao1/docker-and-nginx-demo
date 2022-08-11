@@ -2,7 +2,7 @@ FROM node:16.15.1 AS builder
 WORKDIR /app
 COPY . .
 WORKDIR /app/App
-RUN yarn $$ yarn build
+RUN yarn && yarn build
 
 FROM nginx
 WORKDIR /usr/share/nginx/html
