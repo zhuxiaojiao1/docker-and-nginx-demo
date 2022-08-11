@@ -46,10 +46,10 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           token: ${{secrets.TOKEN}}
-          branch: demo01
+          branch: demo03
           folder: ./App/build
           # folder: ~/work/study_demo01/App/build #  /home/runner/work/study_demo01/App/build
-          repository-name: zhuxiaojiao1/zhuxiaojiao1/github.io
+          # repository-name: zhuxiaojiao1/zhuxiaojiao1.github.io
           # folder: ./App/build  # /home/runner/work/study_demo01/study_demo01/App/build
           # folder: .  部署成功了，但是找不到页面
           # folder: build # /home/runner/work/study_demo01/study_demo01/build

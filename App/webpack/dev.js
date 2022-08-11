@@ -8,7 +8,7 @@ module.exports = merge(commonConfig, {
     devtool: "eval-cheap-module-source-map",
     devServer: {
         // host:'0.0.0.0',
-        port: 3000,
+        port: "auto",
         open: true,
         hot: true,
         historyApiFallback: true,
@@ -40,6 +40,7 @@ module.exports = merge(commonConfig, {
     },
     plugins: [
         new HtmlWebpackPlugin({
+            // template:''
             template: "./public/index.html",
             title: "123_webpack",
         }),
@@ -47,5 +48,6 @@ module.exports = merge(commonConfig, {
     output: {
         filename: "[name].js",
         chunkFilename: "[name].chunk.js",
+        clean: true,
     },
 });

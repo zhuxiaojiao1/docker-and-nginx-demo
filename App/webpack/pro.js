@@ -1,4 +1,5 @@
 const { merge } = require("webpack-merge");
+const path = require("path");
 const commonConfig = require("./common");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -8,7 +9,26 @@ module.exports = merge(commonConfig, {
     module: {
         rules: [{
                 test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    {
+                        loader: "css-loader",
+                        options: {
+                            importLoaders: 1,
+                            modules: {
+                                localIdentName: "[local]",
+                            },
+                        },
+                    },
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            postcssOptions: {
+                                config: path.resolve(__dirname, "../postcss.config.js"),
+                            },
+                        },
+                    },
+                ],
             },
             {
                 test: /\.(sc|sa)ss$/,
@@ -27,8 +47,21 @@ module.exports = merge(commonConfig, {
                             },
                         },
                     },
-                    "postcss-loader",
-                    "sass-loader",
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            postcssOptions: {
+                                config: path.resolve(__dirname, "../postcss.config.js"),
+                            },
+                        },
+                    },
+                    { loader: "resolve-url-loader" },
+                    {
+                        loader: "sass-loader", // 将 Sass 编译成 CSS
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
                 ],
             },
         ],
