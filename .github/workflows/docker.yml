@@ -20,4 +20,4 @@ jobs:
           token: ${{secrets.MY_TOKEN}}
           folder: ./App/build
           branch: docker_branch
-          repository-name: zhuxiaojiao1/zhuxiaojiao1.github.io/study_demo01
+          # repository-name: zhuxiaojiao1/zhuxiaojiao1.github.io/study_demo01
